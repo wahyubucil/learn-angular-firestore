@@ -20,4 +20,8 @@ export class OrderListComponent implements OnInit {
       .getCoffeeOrders()
       .subscribe(res => (this.coffeeOrders = res));
   }
+
+  markCompleted(data) {
+    this.ordersService.updateCoffeOrder(data);
+  }
 }

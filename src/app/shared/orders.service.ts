@@ -27,4 +27,11 @@ export class OrdersService {
   getCoffeeOrders() {
     return this.firestore.collection("coffeeOrders").snapshotChanges();
   }
+
+  updateCoffeOrder(data) {
+    return this.firestore
+      .collection("coffeeOrders")
+      .doc(data.payload.doc.id)
+      .set({ completed: true }, { merge: true });
+  }
 }
