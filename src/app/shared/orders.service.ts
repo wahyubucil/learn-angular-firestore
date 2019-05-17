@@ -23,4 +23,8 @@ export class OrdersService {
         .then(res => resolve(res), err => reject(err));
     });
   }
+
+  getCoffeeOrders() {
+    return this.firestore.collection("coffeeOrders").snapshotChanges();
+  }
 }
