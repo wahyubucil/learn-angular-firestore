@@ -32,5 +32,12 @@ export class OrdersComponent implements OnInit {
     if (index > -1) this.coffeeOrder.splice(index, 1);
   };
 
-  onSubmit() {}
+  onSubmit() {
+    this.ordersService.form.value.coffeeOrder = this.coffeeOrder;
+    const data = this.ordersService.form.value;
+
+    this.ordersService.createCoffeeOrder(data).then(res => {
+      alert("Created");
+    });
+  }
 }

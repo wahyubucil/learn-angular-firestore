@@ -14,4 +14,13 @@ export class OrdersService {
     coffeeOrder: new FormControl(""),
     completed: new FormControl(false)
   });
+
+  createCoffeeOrder(data) {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection("coffeeOrders")
+        .add(data)
+        .then(res => resolve(res), err => reject(err));
+    });
+  }
 }
